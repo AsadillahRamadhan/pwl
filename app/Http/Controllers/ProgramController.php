@@ -6,8 +6,39 @@ use Illuminate\Http\Request;
 
 class ProgramController extends Controller
 {
-    function index($program){
-        echo "Program $program: ";
-        echo "<ol><li>Menanam Padi</li><li>Membajak Sawah</li><li>Memandikan Kerbau</li></ol>";
+    function index(){
+        echo "Daftar Program: ";
+        echo "<ul>
+              <li><a href='program/sawah'>Sawah</a></li>
+              <li><a href='program/perkebunan'>Perkebunan</a></li>
+              <li><a href='program/perkantoran'>Perkantoran</a></li>
+              </ul>";
+    }
+
+    function sawah(){
+        echo "Kegiatan:";
+        echo "<ul>
+              <li>Mencangkul</li>
+              <li>Membajak</li>
+              <li>Menanam</li>
+              </ul>";
+    }
+
+    function perkebunan(){
+        echo "Kegiatan:";
+        echo "<ul>
+              <li>Memetik</li>
+              <li>Memupuk</li>
+              <li>Menanam</li>
+              </ul>";
+    }
+
+    function perkantoran(){
+        echo "Kegiatan:";
+        echo "<ul>
+              <li>Mengetik</li>
+              <li>Menulis</li>
+              <li>Melapor</li>
+              </ul>";
     }
 }
