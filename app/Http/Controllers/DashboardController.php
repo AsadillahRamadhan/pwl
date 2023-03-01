@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     function index(){
-        return view('layouts.template');
+        return view('dashboard');
     }
 }

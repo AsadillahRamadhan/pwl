@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class PengalamanController extends Controller
 {
+
     function index(){
-        return view('layouts.template');
+        return view('pengalaman');
     }
+    
 }

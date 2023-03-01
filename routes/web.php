@@ -5,6 +5,9 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
@@ -46,7 +49,8 @@ Route::prefix('category')->group(function(){
 
 Route::get('/category/{category_name}', [ProductController::class, 'index']);
 
-Route::get('/news/{news_name}', [NewsController::class, 'index']);
+Route::get('
+e}', [NewsController::class, 'index']);
 
 Route::prefix('program')->group(function(){
     Route::get('/sawah', [ProgramController::class, 'sawah']);
@@ -57,3 +61,9 @@ Route::prefix('program')->group(function(){
 });
 
 Route::resource('/contact-us', ContactController::class);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/profile', [ProfileController::class, 'index']);
+
+Route::get('/pengalaman-kuliah', [PengalamanController::class, 'index']);
