@@ -7,40 +7,31 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     function index(){
-        echo "Daftar Kategori: ";
-        echo "<ul>
-              <li><a href='category/popok'>Popok</a></li>
-              <li><a href='category/meubel'>Meubel</a></li>
-              <li><a href='category/logam'>Logam</a></li>
-              </ul>";
+        return view('products', [
+            'judul' => 'Home Products',
+            'products' => ['Popok', 'Meubel', 'Logam']
+        ]);
     }
 
     function popok(){
-        echo "Daftar Popok: ";
-        echo "<ul>
-              <li>Popok Bayi</li>
-              <li>Popok Balita</li>
-              <li>Popok Lansia</li>
-              </ul>";
+        return view('products', [
+            'judul' => 'Popok',
+            'products' => ['Popok Bayi', 'Popok Remaja', 'Popok Lansia']
+        ]);
     }
 
     function meubel(){
-        echo "Daftar Meubel: ";
-        echo "<ul>
-              <li>Kursi</li>
-              <li>Meja</li>
-              <li>Kasur</li>
-              </ul>";
+        return view('products', [
+            'judul' => 'Meubel',
+            'products' => ['Kursi', 'Meja', 'Kasur']
+        ]);
     }
 
     function logam(){
-        echo "Daftar Logam: ";
-        echo "<ul>
-              <li>Aluminium</li>
-              <li>Besi</li>
-              <li>Galium</li>
-              </ul>";
+        return view('products', [
+            'judul' => 'Logam',
+            'products' => ['Besi', 'Emas', 'Perak']
+        ]);
     }
-
-
 }
+

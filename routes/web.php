@@ -22,6 +22,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::prefix('product')->group(function(){
+    Route::get('/popok', [ProductController::class, 'popok']);
+    Route::get('/meubel', [ProductController::class, 'meubel']);
+    Route::get('/logam', [ProductController::class, 'logam']);
+    Route::get('/', [ProductController::class, 'index']);
+
+});
+
 Route::get('/about-us', [AboutController::class, 'index']);
 
 Route::pattern('id', '[0-9]+');

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     function index(){
-        echo "Nama: Muhammad Asadillah Ramadhan <br> NIM: 2141720093";
+       return view('about', [
+        'whatsapp' => '12345',
+        'instagram' => '123_45',
+        'facebook' => 'I2EAS'
+       ]);
     }
 }

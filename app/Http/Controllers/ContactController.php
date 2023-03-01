@@ -13,7 +13,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        echo "Berhasil Mengkontak!";
+        return view('contact', [
+            'message' => 'Kontak berhasil!'
+        ]);
     }
 
     /**
@@ -23,6 +25,9 @@ class ContactController extends Controller
      */
     public function create()
     {
+        return view('contact', [
+            'message' => 'Pembuatan kontak berhasil!'
+        ]);
     }
 
     /**
@@ -34,6 +39,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         //
+        return view('contact', [
+            'message' => 'Store kontak berhasil!'
+        ]);
     }
 
     /**
@@ -44,7 +52,9 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        
+        return view('contact', [
+            'message' => 'Show kontak berhasil!'
+        ]);
     }
 
     /**
@@ -56,6 +66,9 @@ class ContactController extends Controller
     public function edit($id)
     {
         //
+        return view('contact', [
+            'message' => 'Edit kontak berhasil!'
+        ]);
     }
 
     /**
@@ -68,6 +81,9 @@ class ContactController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return view('contact', [
+            'message' => 'Update kontak berhasil!'
+        ]);
     }
 
     /**
@@ -79,5 +95,8 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+        return view('contact', [
+            'message' => 'Destroy kontak berhasil!'
+        ]);
     }
 }
