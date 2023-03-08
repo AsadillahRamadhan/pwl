@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
@@ -67,3 +68,5 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/profile', [ProfileController::class, 'index']);
 
 Route::get('/pengalaman-kuliah', [PengalamanController::class, 'index']);
+
+Route::get('/artikel', [ArtikelController::class, 'index']);
