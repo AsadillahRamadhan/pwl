@@ -7,6 +7,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\NewsController;
@@ -70,3 +73,7 @@ Route::get('/profile', [ProfileController::class, 'index']);
 Route::get('/pengalaman-kuliah', [PengalamanController::class, 'index']);
 
 Route::get('/artikel', [ArtikelController::class, 'index']);
+
+Route::get('/hobi', [HobbyController::class, 'index']);
+Route::get('/keluarga', [FamilyController::class, 'index']);
+Route::get('/matkul', [MatkulController::class, 'index']);
