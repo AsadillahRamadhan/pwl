@@ -14,7 +14,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +30,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+
+
+Auth::routes();
+
+Route::get('logout', [LoginController::class, 'logout']);
+
+Route::middleware(['auth'])->group(function(){
+
+    Route::get('/home', [App\Http\Controllers\HobbyController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('product')->group(function(){
     Route::get('/popok', [ProductController::class, 'popok']);
@@ -77,3 +89,4 @@ Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/hobi', [HobbyController::class, 'index']);
 Route::get('/keluarga', [FamilyController::class, 'index']);
 Route::get('/matkul', [MatkulController::class, 'index']);
+});
