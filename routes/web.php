@@ -7,8 +7,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FamilyController;
 use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\FamilyController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatkulController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PengalamanController;
@@ -39,7 +40,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HobbyController::class, 'index'])->name('home');
-    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/', [DashboardController::class, 'index']);
 
 Route::prefix('product')->group(function(){
     Route::get('/popok', [ProductController::class, 'popok']);
@@ -89,4 +90,5 @@ Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/hobi', [HobbyController::class, 'index']);
 Route::get('/keluarga', [FamilyController::class, 'index']);
 Route::get('/matkul', [MatkulController::class, 'index']);
+Route::resource('/mahasiswa', MahasiswaController::class);
 });
