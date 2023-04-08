@@ -27,8 +27,54 @@ class HobbyController extends Controller
                 ]
             ]
         ];
-        return view('hobby', [
-            'data' => $data
+        return view('hobi.hobby', [
+            'data' => $data,
+            'hobi' => $hobbies
         ]);
+    }
+
+    public function create()
+    {
+        return view('hobi.create_hobby', [
+            'url_form' => url('/hobi')
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:50',
+            'tingkat_kesukaan' => 'required|integer'
+        ]);
+        $data = Hobby::create($request->except(['_token']));
+
+        return redirect('hobi')
+            ->with('success', 'Hobi Berhasil Ditambahkan');
+    }
+
+    public function edit($id)
+    {
+        $hobi = Hobby::find($id);
+        return view('hobi.create_hobby', [
+            'hobi' => $hobi,
+            'url_form' => url('/hobi/' . $id)
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nama' => 'required|string|max:50',
+            'tingkat_kesukaan' => 'required|integer'
+        ]);
+
+        $data = Hobby::where('id', '=', $id)->update($request->except(['_token', '_method']));
+        return redirect('hobi')->with('success', 'Hobi Berhasil Diedit');
+    }
+
+    public function destroy($id)
+    {
+        Hobby::where('id', '=', $id)->delete();
+        return redirect('hobi')->with('success', 'Hobi Berhasil Dihapus');
     }
 }
