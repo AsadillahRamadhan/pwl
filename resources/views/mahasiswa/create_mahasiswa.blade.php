@@ -60,9 +60,9 @@
     </div>
     <div class="form-group">
         <label>Kelas</label>
-        <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas">
+        <select class="form-control @error('kelas') is-invalid @enderror" name="kelas">
             @foreach($kelas as $kls)
-            <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
+            <option value="{{ $kls->id }}" {{ ($mhs->kelas_id == $kls->id)? 'selected' : '' }}>{{ $kls->nama_kelas }}</option>
             @endforeach
         </select>
     </div>
