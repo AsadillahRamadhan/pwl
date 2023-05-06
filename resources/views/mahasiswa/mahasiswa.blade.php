@@ -11,6 +11,7 @@
           <th>Nama</th>
           <th>JK</th>
           <th>HP</th>
+          <th>Kelas</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -23,6 +24,7 @@
               <td>{{$m->nama}}</td>
               <td>{{$m->jk}}</td>
               <td>{{$m->hp}}</td>
+              <td>{{ $m->kelas->nama_kelas }}</td>
               <td>
                 <!-- Bikin tombol edit dan delete -->
                 <a href="{{ url('/mahasiswa/'. $m->id.'/edit') }}" class="btn btn-sm btn-warning">edit</a>

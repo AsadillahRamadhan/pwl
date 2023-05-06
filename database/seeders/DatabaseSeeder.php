@@ -26,7 +26,10 @@ class DatabaseSeeder extends Seeder
             FamilySeeder::class,
             HobbySeeder::class,
             MatkulSeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
+            KelasSeeder::class,
+            MahasiswaSeeder::class,
+            UpdateMahasiswaSeeder::class
         ]);
     }
 }

@@ -58,6 +58,14 @@
             <span class="error invalid-feedback">{{ $message }}</span>
         @enderror
     </div>
+    <div class="form-group">
+        <label>Kelas</label>
+        <select class="form-control @error('kelas') is-invalid @enderror" value="{{ isset($mhs)? $mhs->kelas : old('kelas') }}" name="kelas">
+            @foreach($kelas as $kls)
+            <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
+            @endforeach
+        </select>
+    </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>

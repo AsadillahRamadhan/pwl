@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PDO;
 
 class Mahasiswa extends Model
 {
@@ -11,4 +12,8 @@ class Mahasiswa extends Model
     protected $table = 'mahasiswa';
     protected $fillable = ['nim', 'nama', 'tanggal_lahir', 'tempat_lahir', 'alamat', 'hp', 'jk'];
     protected $guarded = ['id'];
+
+    public function kelas(){
+        return $this->belongsTo(Kelas::class);
+    }
 }
