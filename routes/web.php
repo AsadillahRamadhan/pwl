@@ -88,6 +88,7 @@ Route::get('/pengalaman-kuliah', [PengalamanController::class, 'index']);
 Route::get('/artikel', [ArtikelController::class, 'index']);
 
 Route::resource('/mahasiswa', MahasiswaController::class);
+Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
 Route::resource('/hobi', HobbyController::class);
 Route::resource('/matkul', MatkulController::class);
 Route::resource('/keluarga', FamilyController::class);

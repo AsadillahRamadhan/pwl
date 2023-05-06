@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
 use App\Models\Kelas;
+use App\Models\MataKuliah;
 use Illuminate\Http\Request;
+use PDO;
 
 class MahasiswaController extends Controller
 {
@@ -79,7 +81,16 @@ class MahasiswaController extends Controller
      */
     public function show(Mahasiswa $mahasiswa)
     {
-        //
+        
+    }
+
+    public function showKhs(Mahasiswa $mahasiswa, $id){
+        $mahasiswa = Mahasiswa::with('kelas', 'matakuliah')->find($id);
+        $khs = $mahasiswa->matakuliah()->withPivot('nilai')->get();
+        return view('mahasiswa.khs', [
+            'mahasiswa' => $mahasiswa,
+            'khs' => $khs
+        ]);
     }
 
     /**
