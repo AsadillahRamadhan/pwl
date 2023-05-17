@@ -92,4 +92,6 @@ Route::get('/mahasiswa/{id}/khs', [MahasiswaController::class, 'showKhs']);
 Route::resource('/hobi', HobbyController::class);
 Route::resource('/matkul', MatkulController::class);
 Route::resource('/keluarga', FamilyController::class);
+
+Route::resource('articles', ArticleController::class);
 });
