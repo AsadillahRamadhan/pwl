@@ -94,4 +94,6 @@ Route::resource('/matkul', MatkulController::class);
 Route::resource('/keluarga', FamilyController::class);
 
 Route::resource('articles', ArticleController::class);
+
+Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
 });
