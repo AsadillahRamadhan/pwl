@@ -78,7 +78,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article, $id)
+    public function update(Request $request, $id)
     {
         $article = Article::find($id);
 
@@ -89,7 +89,7 @@ class ArticleController extends Controller
             Storage::delete('public/' . $article->featured_image);
         }
 
-        $image_name = $request->file('image')->store('image', 'public');
+        $image_name = $request->file('image')->store('images', 'public');
         $article->featured_image = $image_name;
 
         $article->save();
