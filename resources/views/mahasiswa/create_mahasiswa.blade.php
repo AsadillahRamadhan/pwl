@@ -2,7 +2,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 @section('content')
 <div class="card-body" style="margin-left: 250px;">
-    <form method="post" action="{{ $url_form }}">
+    <form method="post" action="{{ $url_form }}" enctype="multipart/form-data">
     @csrf
     {!! (isset($mhs))? method_field('PUT') : '' !!}
 
@@ -62,11 +62,25 @@
         <label>Kelas</label>
         <select class="form-control @error('kelas') is-invalid @enderror" name="kelas">
             @foreach($kelas as $kls)
+            @if(isset($mhs))
             <option value="{{ $kls->id }}" {{ ($mhs->kelas_id == $kls->id)? 'selected' : '' }}>{{ $kls->nama_kelas }}</option>
+            @else
+            @endif
+            <option value="{{ $kls->id }}">{{ $kls->nama_kelas }}</option>
             @endforeach
         </select>
     </div>
-
+    <div class="form-group">
+        <label>Foto</label>
+        <input class="form-control @error('foto') is-invalid @else mb-3 @enderror" type="file" name="foto" value="{{ isset($mhs)? $mhs->foto : old('foto') }}">
+        @error('foto')
+        <span class="error invalid-feedback mb-3">{{ $message }}</span>
+        @enderror
+        @if(isset($mhs))
+        <p>Foto Sebelumnya</p>
+        <img src="{{ asset($mhs->foto) }}" alt="" width="100px" height="100px" style="overflow:">
+        @endif
+    </div>
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

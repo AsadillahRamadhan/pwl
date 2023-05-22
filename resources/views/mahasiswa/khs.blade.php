@@ -30,5 +30,7 @@
             @endforeach
         </table>
         <a href="/mahasiswa" class="btn btn-success">Kembali</a>
+        <a href="/mahasiswa/{{ $mahasiswa->id }}/cetakPdf" class="btn btn-primary">Cetak PDF</a>
     </div>
+</body>
 </html>

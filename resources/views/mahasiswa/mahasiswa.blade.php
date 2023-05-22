@@ -9,6 +9,7 @@
           <th>No</th>
           <th>NIM</th>
           <th>Nama</th>
+          <th>Foto</th>
           <th>JK</th>
           <th>HP</th>
           <th>Kelas</th>
@@ -22,6 +23,7 @@
               <td>{{++$i}}</td>
               <td>{{$m->nim}}</td>
               <td>{{$m->nama}}</td>
+              <td><img src="{{ $m->foto }}" alt="" width="100px" height="100px" style="overflow: hidden"></td>
               <td>{{$m->jk}}</td>
               <td>{{$m->hp}}</td>
               <td>{{ $m->kelas->nama_kelas }}</td>
@@ -39,7 +41,7 @@
             </tr>
           @endforeach
         @else
-          <tr><td colspan="6" class="text-center">Data tidak ada</td></tr>
+          <tr><td colspan="8" class="text-center">Data tidak ada</td></tr>
         @endif
       </tbody>
     </table>
