@@ -98,4 +98,6 @@ Route::resource('articles', ArticleController::class);
 Route::get('/article/cetak_pdf', [ArticleController::class, 'cetak_pdf']);
 
 Route::get('/mahasiswa/{id}/cetakPdf', [MahasiswaController::class, 'cetak_pdf']);
+
+Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 });
