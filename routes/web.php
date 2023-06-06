@@ -102,4 +102,3 @@ Route::get('/mahasiswa/{id}/cetakPdf', [MahasiswaController::class, 'cetak_pdf']
 Route::post('/mahasiswa/data', [MahasiswaController::class, 'data']);
 });
 
-//tes
